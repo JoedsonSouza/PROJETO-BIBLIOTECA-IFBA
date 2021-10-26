@@ -8,12 +8,24 @@ O sistema utilizado para o gerenciamento de livros da biblioteca do IFBA – Cam
 O sistema tem como foco o controle de dados que envolvem a biblioteca do Instituto Federal da Bahia – Campus de Euclides da Cunha. Tais dados são dos livros e suas categorias, alunos matriculados que desejam solicitar o empréstimo de livros, além de armazenar a quantidade de livros emprestados e suas respectivas datas. Tudo isto com um objetivo: ajudar o bibliotecário com um sistema de gerenciamento de livros, sem a necessidade de uma conexão com a internet.
 
 ### Especificação do papel de cada membro
-Dhomini Andrade dos Santos
+• Cadastrar aluno: Dhomini Andrade dos Santos;
 
-Joedson da Silva Souza
+• Remover aluno: Dhomini Andrade dos Santos;
 
-Magnum Soares de Amurim Pereira Ferreira
+• Editar dados do aluno: Roberto Santos Nascimento;
 
-Mycaelly Jaqueline Matias de Oliveira
+• Editar dados do livro: Roberto Santos Nascimento;
 
-Roberto Santos Nascimento
+• Cadastrar livro: Magnum Soares de Amurim Pereira Ferreira;
+
+• Remover livro: Magnum Soares de Amurim Pereira Ferreira;
+
+• Exibir livros disponíveis: Mycaelly Jaqueline Matias de Oliveira;
+
+• Exibir livros indisponíveis: Mycaelly Jaqueline Matias de Oliveira;
+
+• Exibir qual aluno pegou emprestado o livro considerado indisponível: Joedson da Silva Souza;
+
+• Exibir data limite para devolução do livro emprestado: Joedson da Silva Souza;
+
+• Vincular o livro emprestado ao cadastro do aluno que solicitou o empréstimo: Joedson da Silva Souza;
