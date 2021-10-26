@@ -9,7 +9,11 @@ Alguma coisa aqui
 
 ### Especificação do papel de cada membro
 Alguma coisa aqui
+
 Alguma coisa aqui
+
 Alguma coisa aqui
+
 Alguma coisa aqui
+
 Alguma coisa aqui
