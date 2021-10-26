@@ -8,12 +8,12 @@ Alguma coisa aqui
 Alguma coisa aqui
 
 ### Especificação do papel de cada membro
-Alguma coisa aqui
+Dhomini Andrade dos Santos
 
-Alguma coisa aqui
+Joedson da Silva Souza
 
-Alguma coisa aqui
+Magnum Soares de Amurim Pereira Ferreira
 
-Alguma coisa aqui
+Mycaelly Jaqueline Matias de Oliveira
 
-Alguma coisa aqui
+Roberto Santos Nascimento
