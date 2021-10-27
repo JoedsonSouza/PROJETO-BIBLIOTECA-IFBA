@@ -40,8 +40,8 @@
 | Permitir que o bibliotecário edite os dados do livro                                       | @Roberto     |
 | Criar cadastro para os livros                                                              | @Magnum      |
 | Remover cadastro dos livros                                                                | @Magnum      |
-| Permitir que seja exibido os livros disponíveis                                            | @Micaelly    |
-| Permitir que seja exibido os livros indisponíveis                                          | @Micaelly    |
+| Permitir que seja exibido os livros disponíveis                                            | @Mycaelly    |
+| Permitir que seja exibido os livros indisponíveis                                          | @Mycaelly    |
 | Permitir que seja verificado qual aluno pegou emprestado o livro considerado indisponível  | @Joedson     |
 | Permitir que seja verificada a data limite para devolução do livro emprestado              | @Joedson     |
 | Permitir a vinculação do livro emprestado ao cadastro do aluno que solicitou o empréstimo  | @Joedson     |
