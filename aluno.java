@@ -1,8 +1,8 @@
 public class aluno {
 
-	private String nome, cpf; private Integer cod_cadastro, matricula;
+	private String nome, cpf, matricula; private Integer cod_cadastro;
 	
-	public aluno (String nome, String cpf, Integer matricula, Integer cod_cadastro){
+	public aluno (String nome, String cpf, String matricula, Integer cod_cadastro){
 	
 		this.nome = nome;
 		this.cpf = cpf;
@@ -24,10 +24,10 @@ public class aluno {
 		return this.cpf;
 	}
 	
-	public void setMatricula(Integer matricula){
+	public void setMatricula(String matricula){
 		this.matricula = matricula;
 	}
-	public Integer getMatricula(){
+	public String getMatricula(){
 		return this.matricula; 
 	}
 	
