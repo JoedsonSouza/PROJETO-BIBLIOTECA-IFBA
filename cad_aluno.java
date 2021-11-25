@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class cad_aluno{
 
-	static int codigo_aluno = 1;
+	private static int codigo_aluno = 1;
 
 	Map<String, aluno> alu = new HashMap<String, aluno>();
 	
