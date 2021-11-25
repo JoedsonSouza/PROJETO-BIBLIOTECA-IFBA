@@ -8,7 +8,7 @@ public class cad_aluno{
 
 	Map<String, aluno> alu = new HashMap<String, aluno>();
 	
-	public cad_aluno(String nome, String cpf, String matricula){
+	public void cadastrar(String nome, String cpf, String matricula){
 		aluno a1 = new aluno (nome, cpf, matricula, codigo_aluno);		
 		alu.put(cpf, a1);
 		codigo_aluno++;
