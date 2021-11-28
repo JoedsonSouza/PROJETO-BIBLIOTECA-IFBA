@@ -64,6 +64,5 @@ public class Aluno {
 		System.out.println("E-mail: "+this.email);
 		System.out.println("Telefone: "+this.telefone);
 		System.out.println("Endereco: "+this.endereco);
-		System.out.println("\n\n----FIM DA CONSULTA-----\n");
 	}
 }

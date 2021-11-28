@@ -6,10 +6,9 @@ public class Biblioteca{
 
         HashMap<String, Aluno> alunos = new HashMap<String, Aluno>();
         Scanner scan = new Scanner(System.in);
-        int menu;
+        int menu = -1; String cpf_consulta;
 
         do{
-        menu = 0;
         System.out.println("\n\n=============== BIBLIOTECA ===============");
         System.out.println("================== IFBA ================== \n");
 
@@ -57,7 +56,45 @@ public class Biblioteca{
                     System.out.println("\n\n::::::< CONSULTA DE ALUNO >:::::: \n");
                     scan.nextLine();
                     System.out.print("\nDIGITE O CPF DO ALUNO PARA REALIZAR A CONSULTA: ");
-				    alunos.get(scan.nextLine()).DadosAluno();
+				    cpf_consulta = scan.nextLine();
+
+                    if(alunos.get(cpf_consulta) != null){
+                        alunos.get(cpf_consulta).DadosAluno();
+
+                        System.out.println("\n\nMENU DE OPÇÕES (DADOS ALUNO): ");
+                        System.out.println("[1] - EXCLUIR DADO DE ALUNO");
+                        System.out.println("[2] - ");
+                        System.out.println("[0] - SAIR");
+                        System.out.print("\nDIGITE O NÚMERO DA OPÇÃO ESCOLHIDA: ");
+                        menu = scan.nextInt();
+                   
+                        switch(menu){
+                            case 1:
+                                scan.nextLine();
+                                System.out.println("\n\nOPÇAO 'EXCLUIR DADO DE ALUNO' SELECIONADA. CONTINUAR: ");
+                                System.out.println("[1] - SIM");
+                                System.out.println("[0] - NÃO");
+                                System.out.print("\nDIGITE O NÚMERO DA OPÇÃO ESCOLHIDA: ");
+                                menu = scan.nextInt();
+                                if(menu == 1){
+                                    alunos.remove(cpf_consulta);
+                                    System.out.println("\n\n##---REMOÇÂO CONCLUIDA!---##\n");
+                                    break;
+                                }
+                                else{
+                                    menu = -1;
+                                    break;
+                                }
+
+                            default:
+                                menu = -1;
+                                break;
+                        }
+
+                    }else{ 
+                        System.out.println("\n\n##---SEM CADASTRO DESTE ALUNO!---##\n");
+                        break;
+                    }
                     break;
 
                 case 3:
