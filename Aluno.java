@@ -58,11 +58,11 @@ public class Aluno {
 	public void DadosAluno(){
 
 		System.out.println("\n\n-----DADOS DO ALUNO-----\n");
-		System.out.println("Nome: "+this.getNome());
-		System.out.println("CPF: "+this.getCpf());
-		System.out.println("Matricula: "+this.getMatricula());
-		System.out.println("E-mail: "+this.getEmail());
-		System.out.println("Telefone: "+this.getTelefone());
-		System.out.println("Endereco: "+this.getEndereco());
+		System.out.println("Nome: "+ getNome());
+		System.out.println("CPF: "+ getCpf());
+		System.out.println("Matricula: "+ getMatricula());
+		System.out.println("E-mail: "+ getEmail());
+		System.out.println("Telefone: "+ getTelefone());
+		System.out.println("Endereco: "+ getEndereco());
 	}
 }
