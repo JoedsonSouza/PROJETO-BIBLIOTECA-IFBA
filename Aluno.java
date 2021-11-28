@@ -51,7 +51,7 @@ public class Aluno {
 	public void setEndereco(String endereco){
 		this.endereco= endereco;
 	}
-	public String getEndereco(){
+	public String getendereco(){
 		return this.endereco; 
 	}
 
@@ -63,6 +63,6 @@ public class Aluno {
 		System.out.println("Matricula: "+ getMatricula());
 		System.out.println("E-mail: "+ getEmail());
 		System.out.println("Telefone: "+ getTelefone());
-		System.out.println("Endereco: "+ getEndereco());
+		System.out.println("Endereco: "+ getendereco());
 	}
 }
