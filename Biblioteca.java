@@ -6,7 +6,7 @@ public class Biblioteca{
 
         HashMap<String, Aluno> alunos = new HashMap<String, Aluno>();
         Scanner scan = new Scanner(System.in);
-        int menu, menu_cadastro, menu_consulta;
+        int menu;
 
         do{
         menu = 0;
