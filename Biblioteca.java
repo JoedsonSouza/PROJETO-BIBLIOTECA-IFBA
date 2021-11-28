@@ -49,6 +49,8 @@ public class Biblioteca{
                     endereco = scan.nextLine();
                     Aluno alu = new Aluno(nome, cpf, matricula, email, telefone, endereco);
                     alunos.put(cpf, alu);
+
+                    System.out.println("\n\n##---CADASTRO REALIZADO!---##\n");
                     break;
 
                 case 2:
