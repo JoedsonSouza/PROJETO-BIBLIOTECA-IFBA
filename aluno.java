@@ -1,8 +1,8 @@
-public class aluno {
+public class Aluno {
 
 	private String nome, cpf, matricula, email, telefone, endereco;
 	
-	public aluno (String nome, String cpf, String matricula, String email, String telefone, String endereco){
+	public Aluno (String nome, String cpf, String matricula, String email, String telefone, String endereco){
 	
 		this.nome = nome;
 		this.cpf = cpf;
