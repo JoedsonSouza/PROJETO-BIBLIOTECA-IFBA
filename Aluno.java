@@ -51,18 +51,18 @@ public class Aluno {
 	public void setEndereco(String endereco){
 		this.endereco= endereco;
 	}
-	public String getendereco(){
+	public String getEndereco(){
 		return this.endereco; 
 	}
 
 	public void DadosAluno(){
 
 		System.out.println("\n\n-----DADOS DO ALUNO-----\n");
-		System.out.println("Nome: "+ getNome());
+		System.out.println("NOME: "+ getNome());
 		System.out.println("CPF: "+ getCpf());
-		System.out.println("Matricula: "+ getMatricula());
-		System.out.println("E-mail: "+ getEmail());
-		System.out.println("Telefone: "+ getTelefone());
-		System.out.println("Endereco: "+ getendereco());
+		System.out.println("MATRICULA: "+ getMatricula());
+		System.out.println("E-MAIL: "+ getEmail());
+		System.out.println("TELEFONE: "+ getTelefone());
+		System.out.println("ENDERECO: "+ getEndereco());
 	}
 }
