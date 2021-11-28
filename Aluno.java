@@ -51,7 +51,7 @@ public class Aluno {
 	public void setEndereco(String endereco){
 		this.endereco= endereco;
 	}
-	public String getendereco(){
+	public String getEndereco(){
 		return this.endereco; 
 	}
 
