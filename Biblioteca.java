@@ -34,47 +34,28 @@ public class Biblioteca{
     
                     //ARMAZENAR ALUNOS EM UMA ÚNICA VARIÁVEL E USAR O CPF COMO KEY
 
-                    do{
-                        scan.nextLine();
-                        System.out.print("NOME: ");
-                        nome = scan.nextLine();
-                        System.out.print("CPF: ");
-                        cpf = scan.nextLine();
-                        System.out.print("NÚMERO DE MATRÍCULA: ");
-                        matricula = scan.nextLine();
-                        System.out.print("EMAIL: ");
-                        email = scan.nextLine();
-                        System.out.print("TELEFONE: ");
-                        telefone = scan.nextLine();
-                        System.out.print("ENDEREÇO: ");
-                        endereco = scan.nextLine();
-        
-                        Aluno alu = new Aluno(nome, cpf, matricula, email, telefone, endereco);
-                        alunos.put(cpf, alu);
-
-                        System.out.println("\n\nMENU DE OPÇÕES (CADASTRO DE ALUNO): \n");
-                        System.out.println("[1] - CADASTRAR OUTRO ALUNO");
-                        System.out.println("[0] - SAIR");
-                        System.out.print("\nSUA ESCOLHA: ");
-                        menu_cadastro = scan.nextInt();
-                    }while(menu_cadastro != 0);
-    
+                    scan.nextLine();
+                    System.out.print("NOME: ");
+                    nome = scan.nextLine();
+                    System.out.print("CPF: ");
+                    cpf = scan.nextLine();
+                    System.out.print("NÚMERO DE MATRÍCULA: ");
+                    matricula = scan.nextLine();
+                    System.out.print("EMAIL: ");
+                    email = scan.nextLine();
+                    System.out.print("TELEFONE: ");
+                    telefone = scan.nextLine();
+                    System.out.print("ENDEREÇO: ");
+                    endereco = scan.nextLine();
+                    Aluno alu = new Aluno(nome, cpf, matricula, email, telefone, endereco);
+                    alunos.put(cpf, alu);
                     break;
 
                 case 2:
                     System.out.println("\n\n::::::< CONSULTA DE ALUNO >:::::: \n");
-                   
-                    do{
                     scan.nextLine();
                     System.out.print("\nDIGITE O CPF DO ALUNO PARA REALIZAR A CONSULTA: ");
 				    alunos.get(scan.nextLine()).DadosAluno();
-
-                    System.out.println("\n\nMENU DE OPÇÕES (CONSULTA DE ALUNO): \n");
-                        System.out.println("\n[1] - CONSULTAR OUTRO ALUNO");
-                        System.out.println("[0] - SAIR");
-                        System.out.print("\nSUA ESCOLHA: ");
-                        menu_consulta = scan.nextInt();
-                    }while(menu_consulta != 0);
                     break;
 
                 case 3:
