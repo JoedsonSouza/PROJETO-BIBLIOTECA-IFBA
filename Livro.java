@@ -1,5 +1,13 @@
+import java.util.Scanner;
+
 public class Livro{
     private String codChamada, ISBN, titulo, dataPublic, editora, cidade, subtitulo, tituloOriginal, respPublic, palavraChave, numPaginas;
+    Scanner scan = new Scanner(System.in);
+    private int menuBook;
+
+    public Livro(){
+
+    }
 
     public Livro(String codChamada, String ISBN, String titulo, String dataPublic, String editora, String cidade, String subtitulo, String tituloOriginal, String respPublic, String palavraChave, String numPaginas){
         this.codChamada = codChamada;
@@ -102,6 +110,69 @@ public class Livro{
     public void setNumPaginas(String numPaginas) {
         this.numPaginas = numPaginas;
     }
+
+    public int getMenuBook() {
+        return menuBook;
+    }
+
+    public void setMenuBook(int menu) {
+        this.menuBook = menu;
+    }
+
+    public void cadastrarLivro(){
+        System.out.println("::::::< CADASTRAR LIVRO >:::::: \n");
+
+        System.out.print("Código de Chamada: ");
+        setCodChamada(scan.nextLine());
+        System.out.print("ISBN: " );
+        setISBN(scan.nextLine());
+        System.out.print("Título: " );
+        setTitulo(scan.nextLine());
+        System.out.print("Título Original: " );
+        setTituloOriginal(scan.nextLine());
+        System.out.print("Subtitulo: " );
+        setSubtitulo(scan.nextLine());
+        System.out.print("Número de páginas: " );
+        setNumPaginas(scan.nextLine());
+        System.out.print("Data de Publicação: " );
+        setDataPublic(scan.nextLine());
+        System.out.print("Cidade: " );
+        setCidade(scan.nextLine());
+        System.out.print("Editora: " );
+        setEditora(editora);
+        System.out.print("Responsável pela Publicação: " );
+        setRespPublic(scan.nextLine());
+        System.out.print("Palavras-Chave: " );
+        setPalavraChave(scan.nextLine());
+    }
+
+    public void menuLivro(){
+        System.out.println("\n\nMENU DE OPÇÕES (DADOS LIVRO): ");
+        System.out.println("[1] - EXCLUIR CADASTRO DO LIVRO");
+        System.out.println("[2] - EDITAR DADOS DO LIVRO");
+        System.out.println("[0] - SAIR");
+        System.out.print("\nDIGITE O NÚMERO DA OPÇÃO ESCOLHIDA: ");
+        setMenuBook(scan.nextInt());
+    }
+
+    public void menuEditarDados(){
+		System.out.println("\n\n::::::< EDITAR DADOS DO LIVRO >:::::: \n");
+                                
+        System.out.println("[1] - EDITAR CÓDIGO DE CHAMADA");
+        System.out.println("[2] - EDITAR ISBN");
+        System.out.println("[3] - EDITAR TÍTULO");
+        System.out.println("[4] - EDITAR TÍTULO ORIGINAL");
+        System.out.println("[5] - EDITAR SUBTÍTULO");
+        System.out.println("[6] - EDITAR NÚMERO DE PÁGINAS");
+        System.out.println("[7] - EDITAR DATA DE PUBLICAÇÃO");
+        System.out.println("[8] - EDITAR CIDADE");
+        System.out.println("[9] - EDITAR EDITORA");
+        System.out.println("[10] - EDITAR RESPONSÁVEL PELA PUBLICAÇÃO");
+        System.out.println("[11] - EDITAR PALAVRAS-CHAVE");
+        System.out.println("[0] - SAIR");
+        System.out.print("\nDIGITE O NÚMERO DA OPÇÃO ESCOLHIDA: ");
+		setMenuBook(scan.nextInt());
+	}
 
     public void DadosLivro(){
 
