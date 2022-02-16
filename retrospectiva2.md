@@ -36,6 +36,8 @@
 | Vincular o livro emprestado ao cadastro do aluno que solicitou o empréstimo | Joedson da Silva Souza|
 
 ### O que não foi feito
+| Atividade                                                          | Atribuição                                               |
+| ------------------------------------------------------------------ | -------------------------------------------------------- |
 | Exibir livros indisponíveis no sistema		|Mycaelly Jaqueline Matias de Oliveira|
 | Exibir qual aluno pegou emprestado o livro considerado indisponível	|Joedson da Silva Souza|
  | Exibir data limite para devolução do livro emprestado | Joedson da Silva Souza |
