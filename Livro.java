@@ -150,6 +150,7 @@ public class Livro{
         System.out.println("\n\nMENU DE OPÇÕES (DADOS LIVRO): ");
         System.out.println("[1] - EXCLUIR CADASTRO DO LIVRO");
         System.out.println("[2] - EDITAR DADOS DO LIVRO");
+        System.out.println("[3] - VINCULAR LIVRO A UM ALUNO");
         System.out.println("[0] - SAIR");
         System.out.print("\nDIGITE O NÚMERO DA OPÇÃO ESCOLHIDA: ");
         setMenuBook(scan.nextInt());
@@ -189,4 +190,8 @@ public class Livro{
         System.out.println("Responsável pela Publicação: " + getRespPublic());
         System.out.println("Palavras-Chave: " + getPalavraChave());
 	}
+
+    public void livrosIndisponiveis(Livro livro){
+
+    }
 }
