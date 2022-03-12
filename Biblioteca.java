@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.HashMap;
 
 public class Biblioteca{
     Scanner scan = new Scanner(System.in);
@@ -39,6 +38,7 @@ public class Biblioteca{
         System.out.println("[2] - CONSULTAR ALUNO");
         System.out.println("[3] - CADASTRAR LIVRO");
         System.out.println("[4] - CONSULTAR LIVRO");
+        System.out.println("[5] - LISTAR LIVROS DISPONÍVEIS");
         System.out.println("[-1] - SAIR \n");
         System.out.print("DIGITE O NÚMERO DA OPÇÃO ESCOLHIDA: ");
         

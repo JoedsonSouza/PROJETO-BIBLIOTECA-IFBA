@@ -1,23 +1,27 @@
 import java.util.Scanner;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class Sistema{
     public static void main(String[] args) {
 
         HashMap<String, Aluno> alunos = new HashMap<String, Aluno>();
         HashMap<String, Livro> livros = new HashMap<String, Livro>();
+        HashMap<String, Aluno> vinculo = new HashMap<String, Aluno>();
         Scanner scan = new Scanner(System.in);
         Biblioteca menu = new Biblioteca(); 
         String cpf_consulta, ISBN_consulta;
-        Aluno alu = new Aluno();
-        Livro liv = new Livro();
+        
+        
 
         do{
         menu.menuOpcoes();
 
             switch (menu.getMenu()) {
                 case 1:
-                    //--CADASTRO DO ALUNO--//                    
+                    //--CADASTRO DO ALUNO--// 
+                    Aluno alu = new Aluno();                   
                     alu.cadastrarAluno();
                     alu = new Aluno(alu.getNome(), alu.getCpf(), alu.getMatricula(), alu.getEmail(), alu.getTelefone(), alu.getEndereco());
                     alunos.put(alu.getCpf(), alu);
@@ -32,16 +36,16 @@ public class Sistema{
 
                     if(alunos.get(cpf_consulta) != null){
                         alunos.get(cpf_consulta).DadosAluno();
-                        alu.menuAluno();
+                        alunos.get(cpf_consulta).menuAluno();
                    
-                        switch(alu.getMenuStudent()){
+                        switch(alunos.get(cpf_consulta).getMenuStudent()){
                             case 1:
                                 System.out.println("\n\nOPÇÃO 'EXCLUIR CADASTRO DE ALUNO' SELECIONADA. CONTINUAR: ");
                                 System.out.println("[1] - SIM");
                                 System.out.println("[0] - NÃO");
                                 System.out.print("\nDIGITE O NÚMERO DA OPÇÃO ESCOLHIDA: ");
-                                alu.setMenuStudent(scan.nextInt());
-                                if(alu.getMenuStudent() == 1){
+                                alunos.get(cpf_consulta).setMenuStudent(scan.nextInt());
+                                if(alunos.get(cpf_consulta).getMenuStudent() == 1){
                                     alunos.remove(cpf_consulta);
                                     System.out.println("\n\n##---REMOÇÂO CONCLUIDA!---##\n");
                                     break;
@@ -52,9 +56,9 @@ public class Sistema{
 
                             case 2:
                                 do {
-                                    alu.menuEditarDados();
+                                    alunos.get(cpf_consulta).menuEditarDados();
 
-                                    switch (alu.getMenuStudent()) {
+                                    switch (alunos.get(cpf_consulta).getMenuStudent()) {
                                         case 1:
                                             System.out.print("NOVO NOME: ");
                                             alunos.get(cpf_consulta).setNome(scan.nextLine());
@@ -88,9 +92,9 @@ public class Sistema{
                                         default:
                                             break;
                                     }
-                                } while (alu.getMenuStudent() != 0);
+                                } while (alunos.get(cpf_consulta).getMenuStudent() != 0);
                                 alunos.get(cpf_consulta).DadosAluno();
-                                break;        
+                                break;    
                             default:
                                 break;
                         }
@@ -102,6 +106,7 @@ public class Sistema{
                     break;
 
                 case 3:
+                    Livro liv = new Livro();
                     liv.cadastrarLivro();
                     liv = new Livro(liv.getCodChamada(), liv.getISBN(), liv.getTitulo(), liv.getDataPublic(), liv.getEditora(), liv.getCidade(), liv.getSubtitulo(), liv.getTituloOriginal(), liv.getRespPublic(), liv.getPalavraChave(), liv.getNumPaginas());
                     livros.put(liv.getISBN(), liv);
@@ -116,16 +121,16 @@ public class Sistema{
 
                     if (livros.get(ISBN_consulta) != null) {
                         livros.get(ISBN_consulta).DadosLivro();
-                        liv.menuLivro();
+                        livros.get(ISBN_consulta).menuLivro();
 
-                        switch(liv.getMenuBook()){
+                        switch(livros.get(ISBN_consulta).getMenuBook()){
                             case 1:
                                 System.out.println("\n\nOPÇÃO 'EXCLUIR CADASTRO DE LIVRO' SELECIONADA. CONTINUAR: ");
                                 System.out.println("[1] - SIM");
                                 System.out.println("[0] - NÃO");
                                 System.out.print("\nDIGITE O NÚMERO DA OPÇÃO ESCOLHIDA: ");
-                                liv.setMenuBook(scan.nextInt());
-                                if(liv.getMenuBook() == 1){
+                                livros.get(ISBN_consulta).setMenuBook(scan.nextInt());
+                                if(livros.get(ISBN_consulta).getMenuBook() == 1){
                                     livros.remove(ISBN_consulta);
                                     System.out.println("\n\n##---REMOÇÂO CONCLUIDA!---##\n");
                                     break;
@@ -135,9 +140,9 @@ public class Sistema{
                                 }
                             case 2:
                                 do {
-                                    liv.menuEditarDados();
+                                    livros.get(ISBN_consulta).menuEditarDados();
 
-                                    switch (liv.getMenuBook()) {
+                                    switch (livros.get(ISBN_consulta).getMenuBook()) {
                                         case 1:
                                             System.out.print("NOVO CÓDIGO DE CHAMADA: ");
                                             livros.get(ISBN_consulta).setCodChamada(scan.nextLine());
@@ -197,9 +202,16 @@ public class Sistema{
                                         default:
                                             break;
                                     }
-                                } while (liv.getMenuBook() != 0);
+                                } while (livros.get(ISBN_consulta).getMenuBook() != 0);
                                 livros.get(ISBN_consulta).DadosLivro();
                                 break;
+                            case 3:
+                                System.out.println("\n\n::::::< VINCULAR LIVRO A UM ALUNO >:::::: \n");
+                                System.out.print("\nDIGITE O CPF DO ALUNO PARA REALIZAR O VINCULO: ");
+                                cpf_consulta = scan.nextLine();
+                                vinculo.put(ISBN_consulta, alunos.get(cpf_consulta));
+                                livros.remove(ISBN_consulta);
+                                break;    
                             default:
                                 break;
                         }
@@ -207,7 +219,15 @@ public class Sistema{
                         System.out.println("\n\n##---SEM CADASTRO DESTE LIVRO!---##\n");
                     }
                     break;
-
+                case 5:
+                    System.out.println("\n\n::::::< LIVROS DISPONÍVEIS >:::::: \n");
+                    for(Map.Entry<String, Livro> entrada : livros.entrySet()){
+                        String codLivro = entrada.getKey(); // recebo o valor da chave que referencia o map
+                        Livro l = entrada.getValue();       // recebo o valor vinculado a determinada chave
+                        System.out.println(l.getTitulo());  // mostro o valor referente àquela chave
+                    }
+                    break;
+            
                 default:
                     break;
             }
