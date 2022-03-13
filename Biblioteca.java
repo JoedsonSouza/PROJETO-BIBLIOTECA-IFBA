@@ -1,9 +1,12 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
+import java.util.Scanner; 
 
 public class Biblioteca{
     Scanner scan = new Scanner(System.in);
+    private boolean prova;
+    private ArrayList<String> cpf_vinculo = new ArrayList<String>(); 
     private int menu;
     private String cpf_consulta;
     private String ISBN_consulta;
@@ -242,18 +245,26 @@ public class Biblioteca{
                     break;
                 case 3:
                     System.out.println("\n\n::::::< VINCULAR LIVRO A UM ALUNO >:::::: \n");
-                    String cpfAluno2 = null;
                     for(Map.Entry<String, Aluno> entrada : alunos.entrySet()){
-                        String cpfAluno = entrada.getKey(); // recebo o valor da chave que referencia o map
+                        cpf_vinculo.add(entrada.getKey()); // recebo o valor da chave que referencia o map
                         Aluno a = entrada.getValue();       // recebo o valor vinculado a determinada chave
-                        cpfAluno2 = cpfAluno;
                         System.out.println("Nome: " + a.getNome());
                         System.out.println("CPF: " + a.getCpf());  // mostro o valor referente àquela chave
                         System.out.println("\n");
                     }
-                    System.out.print("DIGITE O CPF DO ALUNO PARA REALIZAR O VINCULO: ");
+                    System.out.print("DIGITE O CPF DO ALUNO PARA REALIZAR O VINCULO: "+cpf_vinculo.size());
                     cpf_consulta = scan.nextLine();
-                    if (!cpf_consulta.equals(cpfAluno2)) {
+
+                    for(int i = 0; i < cpf_vinculo.size(); i++){
+                        if(cpf_vinculo.get(i).equals(cpf_consulta)){
+                            prova = true;
+                        }
+                        else{
+                            prova = false;
+                        }
+                    }
+
+                    if (prova = false) {
                         System.out.println("\n\n##---SEM CADASTRO DESTE ALUNO!---##\n");
                     }else{
                         vinculo.put(getISBN_consulta(), alunos.get(cpf_consulta));
