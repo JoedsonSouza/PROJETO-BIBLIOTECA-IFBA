@@ -122,4 +122,14 @@ public class Aluno {
 		System.out.println("TELEFONE: "+ getTelefone());
 		System.out.println("ENDERECO: "+ getEndereco());
 	}
+
+	public void DadosAlunoVinculado(){
+
+		System.out.println("NOME: "+ getNome());
+		System.out.println("CPF: "+ getCpf());
+		System.out.println("MATRICULA: "+ getMatricula());
+		System.out.println("E-MAIL: "+ getEmail());
+		System.out.println("TELEFONE: "+ getTelefone());
+		System.out.println("ENDERECO: "+ getEndereco());
+	}
 }

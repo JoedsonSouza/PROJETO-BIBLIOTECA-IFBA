@@ -119,6 +119,7 @@ public class Livro{
         this.menuBook = menu;
     }
 
+
     public void cadastrarLivro(){
         System.out.println("::::::< CADASTRAR LIVRO >:::::: \n");
 
@@ -139,7 +140,7 @@ public class Livro{
         System.out.print("Cidade: " );
         setCidade(scan.nextLine());
         System.out.print("Editora: " );
-        setEditora(editora);
+        setEditora(scan.nextLine());
         System.out.print("Responsável pela Publicação: " );
         setRespPublic(scan.nextLine());
         System.out.print("Palavras-Chave: " );
@@ -191,7 +192,4 @@ public class Livro{
         System.out.println("Palavras-Chave: " + getPalavraChave());
 	}
 
-    public void livrosIndisponiveis(Livro livro){
-
-    }
 }
