@@ -1,16 +1,21 @@
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner; 
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+import java.util.Date;
+import java.text.NumberFormat;
 
 public class Biblioteca{
     Scanner scan = new Scanner(System.in);
-    private boolean prova;
+    private boolean prova; private Date DataPegou, DataEntrega;
     private ArrayList<String> cpf_vinculo = new ArrayList<String>(); 
     private int menu;
     private String cpf_consulta;
     private String ISBN_consulta;
-    HashMap<String, Aluno> alunos = new HashMap<String, Aluno>();
+    static HashMap<String, Aluno> alunos = new HashMap<String, Aluno>();
     HashMap<String, Livro> livros = new HashMap<String, Livro>();
     HashMap<String, Aluno> vinculo = new HashMap<String, Aluno>();
     HashMap<String, Livro> indisponiveis = new HashMap<String, Livro>();
@@ -305,7 +310,7 @@ public class Biblioteca{
                         System.out.println("CPF: " + a.getCpf());  // mostro o valor referente àquela chave
                         System.out.println("\n");
                     }
-                    System.out.print("DIGITE O CPF DO ALUNO PARA REALIZAR O VINCULO: "+cpf_vinculo.size());
+                    System.out.print("DIGITE O CPF DO ALUNO PARA REALIZAR O VINCULO: ");
                     cpf_consulta = scan.nextLine();
 
                     for(int i = 0; i < cpf_vinculo.size(); i++){
@@ -324,7 +329,7 @@ public class Biblioteca{
                     
                         indisponiveis.put(getISBN_consulta(), livros.get(ISBN_consulta));
                         livros.remove(getISBN_consulta());
-                    
+                        this.DataPegou();
                         System.out.println("\n\n##---VÍNCULO REALIZADO!---##\n");
                     }
                     
@@ -364,9 +369,38 @@ public class Biblioteca{
                     a.DadosAlunoVinculado();
                 }
                 
+                System.out.println("\nData em que o aluno retirou o livro: "+this.getDataPegouString());
+                System.out.println("Previsão de retorno do livro: "+this.DataEntrega());
                 System.out.println("\n");
             }
+
         }
-        scan.close();
+    }
+
+    //MÉTODOS PARA DATA DE ENTREGA
+
+    public void DataPegou() {
+        this.setDataVinculo(new Date());
+    }
+    public void setDataVinculo(Date DataPegou){
+        this.DataPegou = DataPegou;
+    }
+    public Date getDataPegou(){
+        return this.DataPegou;
+    }
+    public String getDataPegouString(){
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/y"); 
+        String dataFormatada = formato.format(this.getDataPegou());
+        return dataFormatada;
+    }
+
+    public String DataEntrega(){
+        Calendar cal = Calendar.getInstance(); 
+        cal.setTime(this.DataPegou); 
+        cal.add(Calendar.DATE, 30);
+        this.DataEntrega = cal.getTime();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/y"); 
+        String dataFormatada = formato.format(this.DataEntrega);
+        return dataFormatada;
     }
 }
