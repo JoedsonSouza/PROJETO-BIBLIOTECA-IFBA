@@ -15,6 +15,27 @@ public class Biblioteca{
     HashMap<String, Aluno> vinculo = new HashMap<String, Aluno>();
     HashMap<String, Livro> indisponiveis = new HashMap<String, Livro>();
 
+    // VARIÁVEIS NECESSÁRIAS PARA MUDANÇA DE CPF
+    String nome;
+    String cpf;
+    String matricula;
+    String email;
+    String telefone;
+    String endereco;
+
+    // VARIÁVEIS NECESSÁRIA PARA MUDANÇA DE ISBN
+    String codChamada;
+    String ISBN;
+    String titulo;
+    String dataPublic;
+    String editora;
+    String cidade;
+    String subtitulo;
+    String tituloOriginal;
+    String respPublic;
+    String palavraChave;
+    String numPaginas;
+
     public Biblioteca(){
 
     }
@@ -103,8 +124,22 @@ public class Biblioteca{
                                 System.out.println("\n\n##---ALTERAÇÃO CONCLUIDA!---##\n");
                                 break;
                             case 2:
+                                nome = alunos.get(cpf_consulta).getNome();
+                                matricula = alunos.get(cpf_consulta).getMatricula();
+                                email= alunos.get(cpf_consulta).getEmail();
+                                telefone = alunos.get(cpf_consulta).getTelefone();
+                                endereco = alunos.get(cpf_consulta).getEndereco();
+
+                                alunos.remove(cpf_consulta);
+
+                                scan.nextLine();
                                 System.out.print("NOVO CPF: ");
-                                alunos.get(getCpf_consulta()).setCpf(scan.nextLine());
+                                cpf_consulta= scan.nextLine();
+                                cpf = cpf_consulta;
+
+                                Aluno aluEdit = new Aluno(nome, cpf, matricula, email, telefone, endereco);
+                                alunos.put(cpf, aluEdit);
+
                                 System.out.println("\n\n##---ALTERAÇÃO CONCLUIDA!---##\n");
                                 break;
                             case 3:
@@ -187,8 +222,26 @@ public class Biblioteca{
                                 System.out.println("\n\n##---ALTERAÇÃO CONCLUIDA!---##\n");
                                 break;
                             case 2:
+                                codChamada = livros.get(ISBN_consulta).getCodChamada();
+                                titulo = livros.get(ISBN_consulta).getTitulo();
+                                dataPublic = livros.get(ISBN_consulta).getDataPublic();
+                                editora = livros.get(ISBN_consulta).getEditora();
+                                cidade = livros.get(ISBN_consulta).getCidade();
+                                subtitulo = livros.get(ISBN_consulta).getSubtitulo();
+                                tituloOriginal = livros.get(ISBN_consulta).getTituloOriginal();
+                                respPublic = livros.get(ISBN_consulta).getRespPublic();
+                                palavraChave = livros.get(ISBN_consulta).getPalavraChave();
+                                numPaginas = livros.get(ISBN_consulta).getNumPaginas();
+
+                                livros.remove(ISBN_consulta);
+
+                                scan.nextLine();
                                 System.out.print("NOVO ISBN: ");
-                                livros.get(getISBN_consulta()).setISBN(scan.nextLine());
+                                ISBN_consulta= scan.nextLine();
+                                ISBN = ISBN_consulta;
+
+                                Livro livEdit = new Livro(codChamada, ISBN, titulo, dataPublic, editora, cidade, subtitulo, tituloOriginal, respPublic, palavraChave, numPaginas);
+                                livros.put(ISBN, livEdit);
                                 System.out.println("\n\n##---ALTERAÇÃO CONCLUIDA!---##\n");
                                 break;
                             case 3:
@@ -289,7 +342,8 @@ public class Biblioteca{
         for(Map.Entry<String, Livro> entrada : livros.entrySet()){
             String codLivro = entrada.getKey(); // recebo o valor da chave que referencia o map
             Livro l = entrada.getValue();       // recebo o valor vinculado a determinada chave
-            System.out.println(l.getTitulo());  // mostro o valor referente àquela chave
+            System.out.println("Livro: " + l.getTitulo());
+            System.out.println("ISBN: " + l.getISBN());
         }
     }
 
@@ -313,8 +367,6 @@ public class Biblioteca{
                 System.out.println("\n");
             }
         }
+        scan.close();
     }
-
-
-
 }
