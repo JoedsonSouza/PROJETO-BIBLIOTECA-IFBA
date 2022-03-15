@@ -88,16 +88,18 @@ public class Biblioteca{
         Aluno alu = new Aluno();                   
         alu.cadastrarAluno();
         alu = new Aluno(alu.getNome(), alu.getCpf(), alu.getMatricula(), alu.getEmail(), alu.getTelefone(), alu.getEndereco());
+        scan.nextLine();
 
         if(alunos.containsKey(alu.getCpf()) == true){
 
-            cpfConvertido = Integer.parseInt(alu.getCpf());
-            cpfConvertido = cpfConvertido + alunos.size();
-            alu.setCpf(String.valueOf(cpfConvertido));
-            alunos.put(alu.getCpf(), alu);
+            do{
+                System.out.println("\n## CPF INFORMADO JÁ EXISTE. POR FAVOR, MODIFIQUE-O!!\n");
+                System.out.print("NOVO CPF: ");
+                alu.setCpf(scan.nextLine());
 
-        System.out.println("\n## CPF INFORMADO JÁ EXISTE. POR FAVOR, MODIFICA-LO COM URGENCIA!!\n");
-        System.out.println("\nCPF PROVISORIO DEFINIDO AUTOMATICAMENTE: "+cpfConvertido);
+            }while(alunos.containsKey(alu.getCpf()) == true);
+
+            alunos.put(alu.getCpf(), alu);
 
         }else if(alunos.containsKey(alu.getCpf()) == false){
 
@@ -153,24 +155,30 @@ public class Biblioteca{
 
                                 alunos.remove(cpf_consulta);
                                 System.out.print("NOVO CPF: ");
-                                cpf_consulta= scan.nextLine();
+                                cpf_consulta = scan.nextLine();
                                 cpf = cpf_consulta;
 
                                 Aluno aluEdit = new Aluno(nome, cpf, matricula, email, telefone, endereco);
                                 
+                                scan.nextLine();
+        
                                 if(alunos.containsKey(aluEdit.getCpf()) == true){
 
+                                    do{
+                                        System.out.println("\n## CPF INFORMADO JÁ EXISTE. POR FAVOR, MODIFIQUE-O!!\n");
+                                        System.out.print("NOVO CPF: ");
+                                        aluEdit.setCpf(scan.nextLine());
+
+                                    }while(alunos.containsKey(aluEdit.getCpf()) == true);
+
                                     cpfConvertido = Integer.parseInt(aluEdit.getCpf());
-                                    cpfConvertido = cpfConvertido + alunos.size();
-                                    aluEdit.setCpf(String.valueOf(cpfConvertido));
                                     alunos.put(aluEdit.getCpf(), aluEdit);
-                        
-                                System.out.println("\n## CPF INFORMADO JÁ EXISTE. POR FAVOR, MODIFICA-LO COM URGENCIA!!\n");
-                                System.out.println("\nCPF PROVISORIO DEFINIDO AUTOMATICAMENTE: "+cpfConvertido);
-                        
+                                    
                                 }else if(alunos.containsKey(aluEdit.getCpf()) == false){
-                        
+
+                                    cpfConvertido = Integer.parseInt(aluEdit.getCpf());
                                     alunos.put(aluEdit.getCpf(), aluEdit);
+
                                 }
 
                                 System.out.println("\n\n##---ALTERAÇÃO CONCLUIDA!---##\n");
@@ -214,22 +222,25 @@ public class Biblioteca{
         Livro liv = new Livro();
         liv.cadastrarLivro();
         liv = new Livro(liv.getCodChamada(), liv.getISBN(), liv.getTitulo(), liv.getDataPublic(), liv.getEditora(), liv.getCidade(), liv.getSubtitulo(), liv.getTituloOriginal(), liv.getRespPublic(), liv.getPalavraChave(), liv.getNumPaginas());
-        
+        scan.nextLine();
+
         if(livros.containsKey(liv.getISBN()) == true){
 
-            isbnConvertido = Integer.parseInt(liv.getISBN());
-            isbnConvertido = isbnConvertido + livros.size();
-            liv.setISBN(String.valueOf(isbnConvertido));
-            livros.put(liv.getISBN(), liv);
+            do{
+                System.out.println("\n## ISBN INFORMADO JÁ EXISTE. POR FAVOR, MODIFIQUE-O!!\n");
+                System.out.print("NOVO ISBN: ");
+                liv.setISBN(scan.nextLine());
 
-        System.out.println("\n## ISBN INFORMADO JÁ EXISTE. POR FAVOR, MODIFICA-LO COM URGENCIA!!\n");
-        System.out.println("\nISBN PROVISORIO DEFINIDO AUTOMATICAMENTE: "+isbnConvertido);
-
-        }else if(livros.containsKey(liv.getISBN()) == false){
+            }while(livros.containsKey(liv.getISBN()) == true);
 
             livros.put(liv.getISBN(), liv);
+
+        }else if(alunos.containsKey(liv.getISBN()) == false){
+
+            livros.put(liv.getISBN(), liv);
+
         }
-        
+
         System.out.println("\n\n##---CADASTRO REALIZADO!---##\n");
     }
 
@@ -288,21 +299,27 @@ public class Biblioteca{
 
                                 Livro livEdit = new Livro(codChamada, ISBN, titulo, dataPublic, editora, cidade, subtitulo, tituloOriginal, respPublic, palavraChave, numPaginas);
                                 
+                                scan.nextLine();
+        
                                 if(livros.containsKey(livEdit.getISBN()) == true){
 
+                                    do{
+
+                                        System.out.println("\n## ISBN INFORMADO JÁ EXISTE. POR FAVOR, MODIFIQUE-O!!\n");
+                                        System.out.print("NOVO ISBN: ");
+                                        livEdit.setISBN(scan.nextLine());
+
+                                    }while(livros.containsKey(livEdit.getISBN()) == true);
+
                                     isbnConvertido = Integer.parseInt(livEdit.getISBN());
-                                    isbnConvertido = isbnConvertido + livros.size();
-                                    livEdit.setISBN(String.valueOf(isbnConvertido));
                                     livros.put(livEdit.getISBN(), livEdit);
-                        
-                                System.out.println("\n## ISBN INFORMADO JÁ EXISTE. POR FAVOR, MODIFICA-LO COM URGENCIA!!\n");
-                                System.out.println("\nISBN PROVISORIO DEFINIDO AUTOMATICAMENTE: "+isbnConvertido);
-                        
-                                }else if(livros.containsKey(livEdit.getISBN()) == false){
-                        
+                                    
+                                }else if(alunos.containsKey(livEdit.getISBN()) == false){
+
+                                    isbnConvertido = Integer.parseInt(livEdit.getISBN());
                                     livros.put(livEdit.getISBN(), livEdit);
+
                                 }
-                                
                                 System.out.println("\n\n##---ALTERAÇÃO CONCLUIDA!---##\n");
                                 break;
                             case 3:
