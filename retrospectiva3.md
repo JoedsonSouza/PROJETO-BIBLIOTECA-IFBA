@@ -43,3 +43,4 @@
 * A desenvolver agendas de horários de reunião para o desenvolvimento do projeto
 * Desenvolver o conhecimento sobre programação para realizar os desafios do projeto
 * Utilizar de outras fontes de conhecimento para obter progresso
+* Aprendemos que quando um bug aparece, devemos trabalhar em aprender mais sobre o assunto, para solucionar tais problemas
