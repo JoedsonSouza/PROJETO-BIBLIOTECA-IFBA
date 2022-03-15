@@ -39,6 +39,7 @@
 
 ### Lições aprendidas
 * A desenvolver um projeto em grupo de forma contínua e por longo período
-*A realizar uma organização de tarefas por membro do grupo, de modo a que ninguém fique sobrecarregado
+* A realizar uma organização de tarefas por membro do grupo, de modo a que ninguém fique sobrecarregado
 * A desenvolver agendas de horários de reunião para o desenvolvimento do projeto
 * Desenvolver o conhecimento sobre programação para realizar os desafios do projeto
+* Utilizar de outras fontes de conhecimento para obter progresso
