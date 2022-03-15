@@ -397,7 +397,7 @@ public class Biblioteca{
     public String DataEntrega(){
         Calendar cal = Calendar.getInstance(); 
         cal.setTime(this.DataPegou); 
-        cal.add(Calendar.DATE, 30);
+        cal.add(Calendar.DATE, 10);
         this.DataEntrega = cal.getTime();
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/y"); 
         String dataFormatada = formato.format(this.DataEntrega);
