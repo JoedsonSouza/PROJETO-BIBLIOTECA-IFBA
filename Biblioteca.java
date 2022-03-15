@@ -10,7 +10,7 @@ import java.text.NumberFormat;
  
 public class Biblioteca{
     Scanner scan = new Scanner(System.in);
-    private boolean prova; private Date DataPegou, DataEntrega; private int cpfConvertido; private int isbnConvertido;
+    private boolean prova; private Date DataPegou, DataEntrega; private String cpfConvertido; private String isbnConvertido;
     private ArrayList<String> cpf_vinculo = new ArrayList<String>(); 
     private int menu;
     private String cpf_consulta;
@@ -138,7 +138,7 @@ public class Biblioteca{
                 case 2:
                     do {
                         alunos.get(getCpf_consulta()).menuEditarDados();
-                        cpfConvertido = Integer.parseInt(getCpf_consulta());
+                        cpfConvertido = getCpf_consulta();
 
                         switch (alunos.get(getCpf_consulta()).getMenuStudent()) {
                             case 1:
@@ -157,7 +157,7 @@ public class Biblioteca{
                                 System.out.print("NOVO CPF: ");
                                 cpf_consulta = scan.nextLine();
                                 cpf = cpf_consulta;
-
+ 
                                 Aluno aluEdit = new Aluno(nome, cpf, matricula, email, telefone, endereco);
                                 
                                 scan.nextLine();
@@ -171,12 +171,12 @@ public class Biblioteca{
 
                                     }while(alunos.containsKey(aluEdit.getCpf()) == true);
 
-                                    cpfConvertido = Integer.parseInt(aluEdit.getCpf());
+                                    cpfConvertido = aluEdit.getCpf();
                                     alunos.put(aluEdit.getCpf(), aluEdit);
                                     
                                 }else if(alunos.containsKey(aluEdit.getCpf()) == false){
 
-                                    cpfConvertido = Integer.parseInt(aluEdit.getCpf());
+                                    cpfConvertido = aluEdit.getCpf();
                                     alunos.put(aluEdit.getCpf(), aluEdit);
 
                                 }
@@ -185,29 +185,29 @@ public class Biblioteca{
                                 break;
                             case 3:
                                 System.out.print("NOVO NUMERO DE MATRICULA: ");
-                                alunos.get(String.valueOf(cpfConvertido)).setMatricula(scan.nextLine());
+                                alunos.get(cpfConvertido).setMatricula(scan.nextLine());
                                 System.out.println("\n\n##---ALTERAÇÃO CONCLUIDA!---##\n");
                                 break;
                             case 4:
                                 System.out.print("NOVO E-MAIL: ");
-                                alunos.get(String.valueOf(cpfConvertido)).setEmail(scan.nextLine());
+                                alunos.get(cpfConvertido).setEmail(scan.nextLine());
                                 System.out.println("\n\n##---ALTERAÇÃO CONCLUIDA!---##\n");
                                 break;
                             case 5:
                                 System.out.print("NOVO TELEFONE: ");
-                                alunos.get(String.valueOf(cpfConvertido)).setTelefone(scan.nextLine());
+                                alunos.get(cpfConvertido).setTelefone(scan.nextLine());
                                 System.out.println("\n\n##---ALTERAÇÃO CONCLUIDA!---##\n");
                                 break;
                             case 6:
                                 System.out.print("NOVO ENDERECO: ");
-                                alunos.get(String.valueOf(cpfConvertido)).setEndereco(scan.nextLine());
+                                alunos.get(cpfConvertido).setEndereco(scan.nextLine());
                                 System.out.println("\n\n##---ALTERAÇÃO CONCLUIDA!---##\n");
                                 break;
                             default:
                                 break;
                         }
-                    } while (alunos.get(String.valueOf(cpfConvertido)).getMenuStudent() != 0);
-                    alunos.get(String.valueOf(cpfConvertido)).DadosAluno();
+                    } while (alunos.get(cpfConvertido).getMenuStudent() != 0);
+                    alunos.get(cpfConvertido).DadosAluno();
                     break;    
                 default:
                     break;
@@ -235,7 +235,7 @@ public class Biblioteca{
 
             livros.put(liv.getISBN(), liv);
 
-        }else if(alunos.containsKey(liv.getISBN()) == false){
+        }else if(livros.containsKey(liv.getISBN()) == false){
 
             livros.put(liv.getISBN(), liv);
 
@@ -272,7 +272,7 @@ public class Biblioteca{
                 case 2:
                     do {
                         livros.get(getISBN_consulta()).menuEditarDados();
-                        isbnConvertido = Integer.parseInt(getISBN_consulta());
+                        isbnConvertido = getISBN_consulta();
 
                         switch (livros.get(getISBN_consulta()).getMenuBook()) {
                             case 1:
@@ -311,12 +311,12 @@ public class Biblioteca{
 
                                     }while(livros.containsKey(livEdit.getISBN()) == true);
 
-                                    isbnConvertido = Integer.parseInt(livEdit.getISBN());
+                                    isbnConvertido = livEdit.getISBN();
                                     livros.put(livEdit.getISBN(), livEdit);
                                     
-                                }else if(alunos.containsKey(livEdit.getISBN()) == false){
+                                }else if(livros.containsKey(livEdit.getISBN()) == false){
 
-                                    isbnConvertido = Integer.parseInt(livEdit.getISBN());
+                                    isbnConvertido = livEdit.getISBN();
                                     livros.put(livEdit.getISBN(), livEdit);
 
                                 }
@@ -324,55 +324,55 @@ public class Biblioteca{
                                 break;
                             case 3:
                                 System.out.print("NOVO TÍTULO: ");
-                                livros.get(String.valueOf(isbnConvertido)).setTitulo(scan.nextLine());
+                                livros.get(isbnConvertido).setTitulo(scan.nextLine());
                                 System.out.println("\n\n##---ALTERAÇÃO CONCLUIDA!---##\n");
                                 break;
                             case 4:
                                 System.out.print("NOVO TÍTULO ORIGINAL: ");
-                                livros.get(String.valueOf(isbnConvertido)).setTituloOriginal(scan.nextLine());
+                                livros.get(isbnConvertido).setTituloOriginal(scan.nextLine());
                                 System.out.println("\n\n##---ALTERAÇÃO CONCLUIDA!---##\n");
                                 break;
                             case 5:
                                 System.out.print("NOVO SUBTÍTULO: ");
-                                livros.get(String.valueOf(isbnConvertido)).setSubtitulo(scan.nextLine());
+                                livros.get(isbnConvertido).setSubtitulo(scan.nextLine());
                                 System.out.println("\n\n##---ALTERAÇÃO CONCLUIDA!---##\n");
                                 break;
                             case 6:
                                 System.out.print("NOVO NÚMERO DE PÁGINAS: ");
-                                livros.get(String.valueOf(isbnConvertido)).setNumPaginas(scan.nextLine());
+                                livros.get(isbnConvertido).setNumPaginas(scan.nextLine());
                                 System.out.println("\n\n##---ALTERAÇÃO CONCLUIDA!---##\n");
                                 break;
                             case 7:
                                 System.out.print("NOVA DATA DE PUBLICAÇÃO: ");
-                                livros.get(String.valueOf(isbnConvertido)).setDataPublic(scan.nextLine());
+                                livros.get(isbnConvertido).setDataPublic(scan.nextLine());
                                 System.out.println("\n\n##---ALTERAÇÃO CONCLUIDA!---##\n");
                                 break;
                             case 8:
                                 System.out.print("NOVA CIDADE: ");
-                                livros.get(String.valueOf(isbnConvertido)).setCidade(scan.nextLine());
+                                livros.get(isbnConvertido).setCidade(scan.nextLine());
                                 System.out.println("\n\n##---ALTERAÇÃO CONCLUIDA!---##\n");
                                 break;
                             case 9:
                                 System.out.print("NOVA EDITORA: ");
-                                livros.get(String.valueOf(isbnConvertido)).setEditora(scan.nextLine());
+                                livros.get(isbnConvertido).setEditora(scan.nextLine());
                                 System.out.println("\n\n##---ALTERAÇÃO CONCLUIDA!---##\n");
                                 break;
                             case 10:
                                 System.out.print("NOVO RESPONSÁVEL PELA PUBLICAÇÃO: ");
-                                livros.get(String.valueOf(isbnConvertido)).setRespPublic(scan.nextLine());
+                                livros.get(isbnConvertido).setRespPublic(scan.nextLine());
                                 System.out.println("\n\n##---ALTERAÇÃO CONCLUIDA!---##\n");
                                 break;
                             case 11:
                                 System.out.print("NOVAS PALAVRAS-CHAVE: ");
-                                livros.get(String.valueOf(isbnConvertido)).setPalavraChave(scan.nextLine());
+                                livros.get(isbnConvertido).setPalavraChave(scan.nextLine());
                                 System.out.println("\n\n##---ALTERAÇÃO CONCLUIDA!---##\n");
                                 break;
                         
                             default:
                                 break;
                         }
-                    } while (livros.get(String.valueOf(isbnConvertido)).getMenuBook() != 0);
-                    livros.get(String.valueOf(isbnConvertido)).DadosLivro();
+                    } while (livros.get(isbnConvertido).getMenuBook() != 0);
+                    livros.get(isbnConvertido).DadosLivro();
                     break;
                 case 3:
                     System.out.println("\n\n::::::< VINCULAR LIVRO A UM ALUNO >:::::: \n");
